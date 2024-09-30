@@ -1,0 +1,31 @@
+<main class="flex-shrink-0">
+<div class="container">
+  <p style="text-transform: uppercase; margin-top: 50px;">Lista Contatti</p>
+  <div class="row">
+  @if(persone) {
+   <div class="col">
+    <div *ngFor="let persona of persone, index as i">
+        <a routerLink="/contact/{{i}}" (click)="onOpenCard(persona.id)"><p class="mail-user">{{ persona.email }}</p></a>
+    </div>
+   </div>
+  }
+  @else {
+    <tr>
+      <td colspan="7">
+        <div class="alert alert-danger" style="text-align: center;">NO DATA</div>
+      </td>
+    </tr>
+  }
+   <div class="col">
+    <router-outlet></router-outlet>
+   </div>
+
+  </div>
+
+</div>
+</main>
+<!--
+<div class="col col-md-8">
+<ng-template #profiloContatto>
+    <app-contatto [contatto]="persona"></app-contatto>
+</ng-template>-->
